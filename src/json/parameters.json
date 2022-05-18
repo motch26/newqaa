@@ -1,0 +1,64 @@
+{
+  "data": {
+    "AREA1": ["PARAMETERA", "PARAMETERB"],
+    "AREA2": [
+      "PARAMETERA",
+      "PARAMETERB",
+      "PARAMETERC",
+      "PARAMETERD",
+      "PARAMETERE",
+      "PARAMETERF",
+      "PARAMETERG",
+      "PARAMETERH"
+    ],
+    "AREA3": [
+      "PARAMETERA",
+      "PARAMETERB",
+      "PARAMETERC",
+      "PARAMETERD",
+      "PARAMETERE",
+      "PARAMETERF"
+    ],
+    "AREA4": [
+      "PARAMETERA",
+      "PARAMETERB",
+      "PARAMETERC",
+      "PARAMETERD",
+      "PARAMETERE"
+    ],
+    "AREA5": ["PARAMETERA", "PARAMETERB", "PARAMETERC", "PARAMETERD"],
+    "AREA6": ["PARAMETERA", "PARAMETERB", "PARAMETERC", "PARAMETERD"],
+    "AREA7": [
+      "PARAMETERA",
+      "PARAMETERB",
+      "PARAMETERC",
+      "PARAMETERD",
+      "PARAMETERE",
+      "PARAMETERF",
+      "PARAMETERG"
+    ],
+    "AREA8": [
+      "PARAMETERA",
+      "PARAMETERB",
+      "PARAMETERC",
+      "PARAMETERD",
+      "PARAMETERE",
+      "PARAMETERF",
+      "PARAMETERG",
+      "PARAMETERH",
+      "PARAMETERI",
+      "PARAMETERJ"
+    ],
+    "AREA9": ["PARAMETERA", "PARAMETERB", "PARAMETERC", "PARAMETERD"],
+    "AREA10": [
+      "PARAMETERA",
+      "PARAMETERB",
+      "PARAMETERC",
+      "PARAMETERD",
+      "PARAMETERE",
+      "PARAMETERF",
+      "PARAMETERG",
+      "PARAMETERH"
+    ]
+  }
+}

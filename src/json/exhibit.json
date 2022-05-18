@@ -1,0 +1,260 @@
+{
+  "AREA1": [
+    {
+      "1": "Billboards installed for the purpose of disseminating Vison, Mission, Goals and Objectives (VGMO)"
+    },
+    {
+      "2": "Bulletin of Information"
+    },
+    {
+      "3": "Bulletins, brochures, catalogs, manuals, print and other media"
+    },
+    {
+      "4": "Documents/Materials containing statements of VGMO"
+    },
+    {
+      "5": "Minutes of meetings conducted to formulate, review or revise VGMO"
+    },
+    {
+      "6": "Programs and activities showing students’ participation in the dissemination of VGMO"
+    },
+    {
+      "7": "Research work/study conducted showing awareness and acceptance of the VGMO"
+    },
+    {
+      "8": "SUC Charter"
+    },
+    {
+      "9": "University/College Code"
+    }
+  ],
+  "AREA2": [
+    {
+      "1": "Board Resolution on rank and tenure, and others that concern the faculty"
+    },
+    {
+      "2": "Bulletins/display boards where important legislations, memoranda, directives and circulars on fringe benefits are posted"
+    },
+    {
+      "3": "CMO and other pertinent policies and guidelines"
+    },
+    {
+      "4": "Class Records"
+    },
+    {
+      "5": "Class Schedule for the current semester and for the two (2) preceding semesters"
+    },
+    {
+      "6": "Code of Professional Ethics/R.A. 6713 and other pertinent CSC issuances"
+    },
+    {
+      "7": "Faculty Development Program"
+    },
+    {
+      "8": "Faculty Journal"
+    },
+    {
+      "9": "Faculty Manual"
+    },
+    {
+      "10": "Faculty Performance and Rating System"
+    },
+    {
+      "11": "Faculty Profile"
+    },
+    {
+      "12": "List of faculty and the training, seminars, and conferences they attend (indicate the date and place)"
+    },
+    {
+      "13": "Merit System and Promotion Plan"
+    },
+    {
+      "14": "Minutes and attendance record of faculty meetings"
+    },
+    {
+      "15": "Minutes of meetings of the Selection Board"
+    },
+    {
+      "16": "Personnel records of disciplinary/administrative cases"
+    },
+    {
+      "17": "Plantilla of Faculty"
+    },
+    {
+      "18": "Qualification Standards"
+    },
+    {
+      "19": "Records of termination cases"
+    },
+    {
+      "20": "Samples of results of recruitment and selection process conducted showing the names of applicants"
+    },
+    {
+      "21": "Issuances and Compensation, Fringe Benefits and Incentives"
+    }
+  ],
+  "AREA3": [
+    {
+      "1": "Grading system"
+    },
+    {
+      "2": "CHED policies and standards"
+    },
+    {
+      "3": "Copies of instructional materials actually used"
+    },
+    {
+      "4": "Course Curriculum"
+    },
+    {
+      "5": "Course Syllabi"
+    },
+    {
+      "6": "Records of faculty performance evaluation done by students, peers, superiors, etc"
+    },
+    {
+      "7": "Records of class observations together with the evaluation criteria used"
+    },
+    {
+      "8": "Records of conducted remedial, special or make-up classes"
+    },
+    {
+      "9": "Samples of old course syllabi used in the last three (3) years"
+    },
+    {
+      "10": "Samples of student projects and term papers in the current school year"
+    },
+    {
+      "11": "Samples of teacher-made tests in the current school year"
+    },
+    {
+      "12": "System of accrediting, validating, substituting and determining equivalent courses/subjects taken in other institutions"
+    },
+    {
+      "13": "System to ensure quality in the formulation, monitoring and review of the curriculum"
+    }
+  ],
+  "AREA4": [
+    {
+      "1": "Annual Reports"
+    },
+    {
+      "2": "Copy of Budget for Student Services"
+    },
+    {
+      "3": "Copy of Student Services Program"
+    },
+    {
+      "4": "Guidance Manual"
+    },
+    {
+      "5": "Guidance Manual"
+    },
+    {
+      "6": "List of recognized student organizations and their programs"
+    },
+    {
+      "7": "Organizational Chart of Student Affairs Unit"
+    },
+    {
+      "8": "Research studies on students' needs, problems, profile, etc."
+    },
+    {
+      "9": "School Organ"
+    },
+    {
+      "10": "Student Handbook"
+    },
+    {
+      "11": "Student Services: staff, positions, and qualifications"
+    },
+    {
+      "12": "Testing programs/instruments"
+    },
+    {
+      "13": "Updated Alumni Directory"
+    }
+  ],
+  "AREA5": [
+    {
+      "1": "Approved budget allocation indicating the source and amount of funds"
+    },
+    {
+      "2": "Copies of Memoranda of Agreement"
+    },
+    {
+      "3": "Inventory of research facilities"
+    },
+    {
+      "4": "List and samples of research outputs/reports for the last two (2) years"
+    },
+    {
+      "5": "List of researches completed during the last two (2) years and some samples"
+    },
+    {
+      "6": "List of technical support provided by administration"
+    },
+    {
+      "7": "Proceedings of research in-house reviews"
+    },
+    {
+      "8": "Profile of research staff"
+    },
+    {
+      "9": "Published and unpublished researches in printed form"
+    },
+    {
+      "10": "Research Journal"
+    },
+    {
+      "11": "Research linkages"
+    },
+    {
+      "12": "Research Manual"
+    },
+    {
+      "13": "Research Program incorporating researches of students"
+    }
+  ],
+  "AREA6": [
+    {
+      "1": "Annual Reports"
+    },
+    {
+      "2": "Budgetary allocation for extension"
+    },
+    {
+      "3": "Community linkages"
+    },
+    {
+      "4": "Copies of Memoranda of Agreement"
+    },
+    {
+      "5": "Copies of the Institutional and Academic Unit extension program"
+    },
+    {
+      "6": "Extension activity reports"
+    },
+    {
+      "7": "Extension Manual"
+    },
+    {
+      "8": "Monitoring and evaluation reports"
+    },
+    {
+      "9": "Needs assessment or survey results"
+    },
+    {
+      "10": "Organizational set-up of extension office/unit"
+    },
+    {
+      "11": "Photos of extension activities"
+    },
+    {
+      "12": "Roster of consultants/experts"
+    },
+    {
+      "13": "Samples of packaged technologies"
+    }
+  ]
+}

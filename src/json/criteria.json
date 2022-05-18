@@ -1,0 +1,479 @@
+{
+  "data": {
+    "BSIT": {
+      "AREA1": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.5"]
+        },
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.2", "I.3"],
+          "OUTCOMES": ["O.2"]
+        }
+      },
+      "AREA2": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.2"],
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.1", "I.2"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.1"]
+        },
+        "PARAMETERE": {
+          "IMPLEMENTATION": ["I.1", "I.7"]
+        },
+        "PARAMETERF": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERG": {
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERH": {
+          "IMPLEMENTATION": ["I.1", "I.4"]
+        }
+      },
+      "AREA3": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.7", "I.7.1"]
+        },
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.6", "I.7", "I.8", "I.10"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.1", "S.2"],
+          "IMPLEMENTATION": ["I.1", "1.6"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.4", "I.8"]
+        },
+        "PARAMETERF": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.3", "I.4", "I.5", "I.7", "I.8"]
+        }
+      },
+      "AREA4": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.5", "S.6", "S.6.1", "S.6.2", "S.6.3"]
+        },
+        "PARAMETERB": {
+          "SYSTEMS": ["S.3", "S.4"],
+          "IMPLEMENTATION": ["I.14", "I.17"]
+        },
+        "PARAMETERC": {
+          "IMPLEMENTATION": ["I.4"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.13", "S.15", "S.18"]
+        }
+      },
+      "AREA5": {
+        "PARAMETERA": {
+          "IMPLEMENTATION": ["I.2"]
+        },
+        "PARAMETERB": {
+          "SYSTEMS": ["S.2"]
+        },
+        "PARAMETERC": {
+          "IMPLEMENTATION": ["I.8", "I.10"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.2"],
+          "IMPLEMENTATION": ["I.5"]
+        }
+      },
+      "AREA6": {
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.6"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.2"],
+          "IMPLEMENTATION": ["I.3"]
+        },
+        "PARAMETERD": {
+          "IMPLEMENTATION": ["I.1", "I.2"]
+        }
+      },
+      "AREA7": {
+        "PARAMETERA": {
+          "IMPLEMENTATION": ["I.2"]
+        },
+        "PARAMETERB": {
+          "SYSTEMS": ["S.1", "S.2"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.2"]
+        },
+        "PARAMETERD": {
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERE": {
+          "SYSTEMS": ["S.9"]
+        }
+      },
+      "AREA8": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.4"]
+        },
+        "PARAMETERE": {
+          "IMPLEMENTATION": ["I.1", "I.2"]
+        },
+        "PARAMETERF": {
+          "SYSTEMS": ["S.8", "S.9"]
+        },
+        "PARAMETERH": {
+          "SYSTEMS": ["S.2"]
+        },
+        "PARAMETERI": {
+          "SYSTEMS": ["S.2"]
+        }
+      },
+      "AREA9": {
+        "PARAMETERC": {
+          "IMPLEMENTATION": ["I.7"]
+        }
+      },
+      "AREA10": {
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.4"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.1"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.2"],
+          "IMPLEMENTATION": ["I.5"]
+        },
+        "PARAMETERF": {
+          "IMPLEMENTATION": ["I.4", "I.5"]
+        },
+        "PARAMETERH": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.2"]
+        }
+      }
+    },
+    "BSED": {
+      "AREA1": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.5"]
+        },
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.2", "I.3"],
+          "OUTCOMES": ["O.2"]
+        }
+      },
+      "AREA2": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.1", "S.1.4", "S.2"],
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.1", "I.2"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.1"]
+        },
+        "PARAMETERE": {
+          "IMPLEMENTATION": ["I.1", "I.7"]
+        },
+        "PARAMETERF": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERG": {
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERH": {
+          "IMPLEMENTATION": ["I.1", "I.4"]
+        }
+      },
+      "AREA3": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.1", "I.1.1", "I.1.2", "I.7", "I.7.1"]
+        },
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.6", "I.7", "I.8", "I.10"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.1", "S.2"],
+          "IMPLEMENTATION": ["I.1", "I.6"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.7"]
+        },
+        "PARAMETERF": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.2", "I.3", "I.4", "I.7", "I.8"]
+        }
+      },
+      "AREA4": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.5", "S.6", "S.6.1", "S.6.2", "S.6.3"]
+        },
+        "PARAMETERB": {
+          "SYSTEMS": ["S.3", "S.4"],
+          "IMPLEMENTATION": ["I.14", "I.17"]
+        },
+        "PARAMETERC": {
+          "IMPLEMENTATION": ["I.4"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.13", "S.15", "S.18"],
+          "IMPLEMENTATION": ["I.3"]
+        }
+      },
+      "AREA5": {
+        "PARAMETERA": {
+          "IMPLEMENTATION": ["I.2"]
+        },
+        "PARAMETERB": {
+          "SYSTEMS": ["S.2"]
+        },
+        "PARAMETERC": {
+          "IMPLEMENTATION": ["I.8", "I.10"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.2"],
+          "IMPLEMENTATION": ["I.5"]
+        }
+      },
+      "AREA6": {
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.6"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.2"],
+          "IMPLEMENTATION": ["I.3"]
+        },
+        "PARAMETERD": {
+          "IMPLEMENTATION": ["I.1", "I.2"]
+        }
+      },
+      "AREA7": {
+        "PARAMETERA": {
+          "IMPLEMENTATION": ["I.2"]
+        },
+        "PARAMETERB": {
+          "SYSTEMS": ["S.1", "S.2"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.2"]
+        },
+        "PARAMETERD": {
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERE": {
+          "SYSTEMS": ["S.9"]
+        }
+      },
+      "AREA8": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.4"]
+        },
+        "PARAMETERE": {
+          "IMPLEMENTATION": ["I.1", "I.2"]
+        },
+        "PARAMETERF": {
+          "SYSTEMS": ["S.8", "S.9"]
+        },
+        "PARAMETERH": {
+          "SYSTEMS": ["S.2"]
+        },
+        "PARAMETERI": {
+          "SYSTEMS": ["S.2"]
+        }
+      },
+      "AREA9": {
+        "PARAMETERC": {
+          "IMPLEMENTATION": ["I.7", "I.7.5"]
+        }
+      },
+      "AREA10": {
+        "PARAMETERB": {
+          "SYSTEMS": ["S.1", "S.2"],
+          "IMPLEMENTATION": ["I.4"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.1"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.3"],
+          "IMPLEMENTATION": ["I.5"]
+        },
+        "PARAMETERF": {
+          "IMPLEMENTATION": ["I.4", "I.4.5"]
+        },
+        "PARAMETERH": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.2"]
+        }
+      }
+    },
+    "BEED": {
+      "AREA1": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.5"]
+        },
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.2", "I.3"],
+          "OUTCOMES": ["O.2"]
+        }
+      },
+      "AREA2": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.1", "S.1.4", "S.2"],
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.1", "I.2"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.1"]
+        },
+        "PARAMETERE": {
+          "IMPLEMENTATION": ["I.1", "I.7"]
+        },
+        "PARAMETERF": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERG": {
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERH": {
+          "IMPLEMENTATION": ["I.1", "I.4"]
+        }
+      },
+      "AREA3": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.1", "I.1.1", "I.1.2", "I.7", "I.7.1"]
+        },
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.6", "I.7", "I.8", "I.10"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.1", "S.2"],
+          "IMPLEMENTATION": ["I.1", "I.6"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.7"]
+        },
+        "PARAMETERF": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.2", "I.3", "I.4", "I.7", "I.8"]
+        }
+      },
+      "AREA4": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.5", "S.6", "S.6.1", "S.6.2", "S.6.3"]
+        },
+        "PARAMETERB": {
+          "SYSTEMS": ["S.3", "S.4"],
+          "IMPLEMENTATION": ["I.14", "I.17"]
+        },
+        "PARAMETERC": {
+          "IMPLEMENTATION": ["I.4"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.13", "S.15", "S.18"],
+          "IMPLEMENTATION": ["I.3"]
+        }
+      },
+      "AREA5": {
+        "PARAMETERA": {
+          "IMPLEMENTATION": ["I.2"]
+        },
+        "PARAMETERB": {
+          "SYSTEMS": ["S.2"]
+        },
+        "PARAMETERC": {
+          "IMPLEMENTATION": ["I.8", "I.10"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.2"],
+          "IMPLEMENTATION": ["I.5"]
+        }
+      },
+      "AREA6": {
+        "PARAMETERB": {
+          "IMPLEMENTATION": ["I.6"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.2"],
+          "IMPLEMENTATION": ["I.3"]
+        },
+        "PARAMETERD": {
+          "IMPLEMENTATION": ["I.1", "I.2"]
+        }
+      },
+      "AREA7": {
+        "PARAMETERA": {
+          "IMPLEMENTATION": ["I.2"]
+        },
+        "PARAMETERB": {
+          "SYSTEMS": ["S.1", "S.2"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.2"]
+        },
+        "PARAMETERD": {
+          "IMPLEMENTATION": ["I.1"]
+        },
+        "PARAMETERE": {
+          "SYSTEMS": ["S.9"]
+        }
+      },
+      "AREA8": {
+        "PARAMETERA": {
+          "SYSTEMS": ["S.4"]
+        },
+        "PARAMETERE": {
+          "IMPLEMENTATION": ["I.1", "I.2"]
+        },
+        "PARAMETERF": {
+          "SYSTEMS": ["S.8", "S.9"]
+        },
+        "PARAMETERH": {
+          "SYSTEMS": ["S.2"]
+        },
+        "PARAMETERI": {
+          "SYSTEMS": ["S.2"]
+        }
+      },
+      "AREA9": {
+        "PARAMETERC": {
+          "IMPLEMENTATION": ["I.7", "I.7.5"]
+        }
+      },
+      "AREA10": {
+        "PARAMETERB": {
+          "SYSTEMS": ["S.1", "S.2"],
+          "IMPLEMENTATION": ["I.4"]
+        },
+        "PARAMETERC": {
+          "SYSTEMS": ["S.1"]
+        },
+        "PARAMETERD": {
+          "SYSTEMS": ["S.3"],
+          "IMPLEMENTATION": ["I.5"]
+        },
+        "PARAMETERF": {
+          "IMPLEMENTATION": ["I.4", "I.4.5"]
+        },
+        "PARAMETERH": {
+          "SYSTEMS": ["S.1"],
+          "IMPLEMENTATION": ["I.2"]
+        }
+      }
+    }
+  }
+}
