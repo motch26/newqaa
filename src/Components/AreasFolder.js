@@ -47,6 +47,7 @@ function AreasFolder() {
           item
           xs={isSubShown || isPerformanceShown ? 8 : 12}
           rowSpacing={3}
+          alignSelf="self-start"
         >
           {programData.map((area, index) => {
             const areaNumber = Object.keys(area)[0];
@@ -135,11 +136,10 @@ function AreasFolder() {
                         size="small"
                         sx={{ width: "auto", mt: 1 }}
                         onClick={() => {
-                          actions.setPDFModalShown(true);
                           actions.setFile("EXHIBIT");
                           actions.setAreaNum(areaNumber);
                           actions.setParameter("");
-                          actions.setSubShown(false);
+                          actions.setSubShown(true);
                           actions.setDirectory(`${program}/${areaNumber}`);
                         }}
                       >

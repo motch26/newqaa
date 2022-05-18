@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import PDFModal from "./PDFModal";
 import { Context } from "./../Context";
 import criteria from "./../json/criteria.json";
+import exhibits from "./../json/exhibit.json";
 import {
   Grid,
   Box,
@@ -24,8 +25,7 @@ import {
 } from "@mui/icons-material";
 
 function SideList() {
-  var { actions, program, areaNum, parameter, paramData, isPDFModalShown } =
-    useContext(Context);
+  var { actions, program, areaNum, parameter, paramData } = useContext(Context);
 
   const closeList = () => actions.setSubShown(false);
 
@@ -69,12 +69,13 @@ function SideList() {
     return [];
   };
 
+  const exhibitData = exhibits[areaNum];
   return (
     <Grid item xs={4}>
       <Container>
         <Box>
           <Box
-            bgcolor={orange[500]}
+            bgcolor="primary.light"
             sx={{
               width: 1,
               p: 2,
@@ -84,175 +85,181 @@ function SideList() {
             }}
           >
             <Typography variant="h6">
-              {`Area ${convertToRoman(
-                intAreaNum
-              )} - Parameter ${parameter.slice(-1)}`}
+              {`Area ${convertToRoman(intAreaNum)} - ${
+                parameter ? `Parameter ${parameter.slice(-1)}` : "Exhibit"
+              }`}
             </Typography>
             <IconButton onClick={closeList}>
               <CloseIcon />
             </IconButton>
           </Box>
           <Box boxShadow={2}>
-            <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography>Systems</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <List>
-                  {systems.map((file, index) => {
-                    const _file = Object.keys(file)[0];
-                    const description = file[_file];
-                    if (checkIfCategory("SYSTEMS").includes(_file)) {
-                      return (
-                        <div key={index}>
-                          <ListItem>
-                            <ListItemText
-                              primary={_file}
-                              secondary={description}
-                            />
-                          </ListItem>
-                          <Divider />
-                        </div>
-                      );
-                    } else {
-                      return (
-                        <div key={index}>
-                          <ListItemButton
-                            onClick={() => {
-                              actions.setPDFModalShown(true);
-                              actions.setFile(_file);
-                              actions.setDirectory(
-                                `${program}/${areaNum}/${parameter}/SYSTEMS`
-                              );
-                            }}
-                          >
-                            <ListItemText
-                              primary={_file}
-                              secondary={description}
-                            />
-                          </ListItemButton>
-                          <Divider />
-                        </div>
-                      );
-                    }
-                  })}
-                </List>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography>Implementation</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <List>
-                  {implementation.map((file, index) => {
-                    const _file = Object.keys(file)[0];
-                    const description = file[_file];
-                    if (checkIfCategory("IMPLEMENTATION").includes(_file)) {
-                      return (
-                        <div key={index}>
-                          <ListItem>
-                            <ListItemText
-                              primary={_file}
-                              secondary={description}
-                            />
-                          </ListItem>
-                          <Divider />
-                        </div>
-                      );
-                    } else {
-                      return (
-                        <div key={index}>
-                          <ListItemButton
-                            onClick={() => {
-                              actions.setPDFModalShown(true);
-                              actions.setFile(_file);
-                              actions.setDirectory(
-                                `${program}/${areaNum}/${parameter}/IMPLEMENTATION`
-                              );
-                            }}
-                            key={index}
-                          >
-                            <ListItemText
-                              primary={_file}
-                              secondary={description}
-                            />
-                          </ListItemButton>
-                          <Divider />
-                        </div>
-                      );
-                    }
-                  })}
-                </List>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography>Outcomes</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <List>
-                  {outcomes.map((file, index) => {
-                    const _file = Object.keys(file)[0];
-                    const description = file[_file];
-                    if (checkIfCategory("OUTCOMES").includes(_file)) {
-                      return (
-                        <div key={index}>
-                          <ListItem>
-                            <ListItemText
-                              primary={_file}
-                              secondary={description}
-                            />
-                          </ListItem>
-                          <Divider />
-                        </div>
-                      );
-                    } else {
-                      return (
-                        <div key={index}>
-                          <ListItemButton
-                            onClick={() => {
-                              actions.setPDFModalShown(true);
-                              actions.setFile(_file);
-                              actions.setDirectory(
-                                `${program}/${areaNum}/${parameter}/OUTCOMES`
-                              );
-                            }}
-                            key={index}
-                          >
-                            <ListItemText
-                              primary={_file}
-                              secondary={description}
-                            />
-                          </ListItemButton>
-                          <Divider />
-                        </div>
-                      );
-                    }
-                  })}
-                </List>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography>Exhibit</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <List>
-                  <ListItemButton
-                    onClick={() => {
-                      actions.setPDFModalShown(true);
-                      actions.setFile("EXHIBIT");
-                      actions.setDirectory(
-                        `${program}/${areaNum}/${parameter}`
-                      );
-                    }}
-                  >
-                    <ListItemText primary="Exhibit" />
-                  </ListItemButton>
-                </List>
-              </AccordionDetails>
-            </Accordion>
+            {parameter ? (
+              <Box>
+                <Accordion>
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography>Systems</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <List>
+                      {systems.map((file, index) => {
+                        const _file = Object.keys(file)[0];
+                        const description = file[_file];
+                        if (checkIfCategory("SYSTEMS").includes(_file)) {
+                          return (
+                            <div key={index}>
+                              <ListItem>
+                                <ListItemText
+                                  primary={_file}
+                                  secondary={description}
+                                />
+                              </ListItem>
+                              <Divider />
+                            </div>
+                          );
+                        } else {
+                          return (
+                            <div key={index}>
+                              <ListItemButton
+                                onClick={() => {
+                                  actions.setPDFModalShown(true);
+                                  actions.setFile(_file);
+                                  actions.setDirectory(
+                                    `${program}/${areaNum}/${parameter}/SYSTEMS`
+                                  );
+                                }}
+                              >
+                                <ListItemText
+                                  primary={_file}
+                                  secondary={description}
+                                />
+                              </ListItemButton>
+                              <Divider />
+                            </div>
+                          );
+                        }
+                      })}
+                    </List>
+                  </AccordionDetails>
+                </Accordion>
+                <Accordion>
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography>Implementation</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <List>
+                      {implementation.map((file, index) => {
+                        const _file = Object.keys(file)[0];
+                        const description = file[_file];
+                        if (checkIfCategory("IMPLEMENTATION").includes(_file)) {
+                          return (
+                            <div key={index}>
+                              <ListItem>
+                                <ListItemText
+                                  primary={_file}
+                                  secondary={description}
+                                />
+                              </ListItem>
+                              <Divider />
+                            </div>
+                          );
+                        } else {
+                          return (
+                            <div key={index}>
+                              <ListItemButton
+                                onClick={() => {
+                                  actions.setPDFModalShown(true);
+                                  actions.setFile(_file);
+                                  actions.setDirectory(
+                                    `${program}/${areaNum}/${parameter}/IMPLEMENTATION`
+                                  );
+                                }}
+                                key={index}
+                              >
+                                <ListItemText
+                                  primary={_file}
+                                  secondary={description}
+                                />
+                              </ListItemButton>
+                              <Divider />
+                            </div>
+                          );
+                        }
+                      })}
+                    </List>
+                  </AccordionDetails>
+                </Accordion>
+                <Accordion>
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography>Outcomes</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <List>
+                      {outcomes.map((file, index) => {
+                        const _file = Object.keys(file)[0];
+                        const description = file[_file];
+                        if (checkIfCategory("OUTCOMES").includes(_file)) {
+                          return (
+                            <div key={index}>
+                              <ListItem>
+                                <ListItemText
+                                  primary={_file}
+                                  secondary={description}
+                                />
+                              </ListItem>
+                              <Divider />
+                            </div>
+                          );
+                        } else {
+                          return (
+                            <div key={index}>
+                              <ListItemButton
+                                onClick={() => {
+                                  actions.setPDFModalShown(true);
+                                  actions.setFile(_file);
+                                  actions.setDirectory(
+                                    `${program}/${areaNum}/${parameter}/OUTCOMES`
+                                  );
+                                }}
+                                key={index}
+                              >
+                                <ListItemText
+                                  primary={_file}
+                                  secondary={description}
+                                />
+                              </ListItemButton>
+                              <Divider />
+                            </div>
+                          );
+                        }
+                      })}
+                    </List>
+                  </AccordionDetails>
+                </Accordion>
+              </Box>
+            ) : (
+              <List>
+                {exhibitData.map((exhibit) => {
+                  const exNum = Object.keys(exhibit)[0];
+                  const exDesc = exhibit[exNum];
+                  return (
+                    <ListItemButton
+                      key={exNum}
+                      onClick={() => {
+                        actions.setDirectory(`${program}/${areaNum}/EXHIBIT`);
+                        actions.setFile(`${exNum}`);
+                        actions.setPDFModalShown(true);
+                      }}
+                    >
+                      <ListItemText
+                        primary={`Exhibit ${exNum}`}
+                        secondary={exDesc}
+                      />
+                    </ListItemButton>
+                  );
+                })}
+              </List>
+            )}
           </Box>
           <PDFModal />
         </Box>
