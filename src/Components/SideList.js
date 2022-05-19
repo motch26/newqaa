@@ -18,7 +18,7 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@mui/material";
-import { orange } from "@mui/material/colors";
+
 import {
   Close as CloseIcon,
   ExpandMore as ExpandMoreIcon,
@@ -28,10 +28,11 @@ function SideList() {
   var { actions, program, areaNum, parameter, paramData } = useContext(Context);
 
   const closeList = () => actions.setSubShown(false);
-
-  const systems = paramData["SYSTEMS"];
-  const implementation = paramData["IMPLEMENTATION"];
-  const outcomes = paramData["OUTCOMES"];
+  if (paramData) {
+    var systems = paramData["SYSTEMS"];
+    var implementation = paramData["IMPLEMENTATION"];
+    var outcomes = paramData["OUTCOMES"];
+  }
 
   const intAreaNum = parseInt(areaNum.slice(4));
   function convertToRoman(num) {
@@ -252,7 +253,7 @@ function SideList() {
                       }}
                     >
                       <ListItemText
-                        primary={`Exhibit ${exNum}`}
+                        primary={`Exhibit ${exNum.slice(7)}`}
                         secondary={exDesc}
                       />
                     </ListItemButton>

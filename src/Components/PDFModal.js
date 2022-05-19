@@ -62,7 +62,7 @@ function PDFModal() {
           }}
         >
           <Typography variant="h6">{`Area ${areaNum.slice(4)} ${
-            parameter ? `- P.${parameter.slice(-1)}.` : " - Exhibit"
+            parameter ? `- P.${parameter.slice(-1)}.` : ""
           } - ${file}`}</Typography>
         </Box>
         <Box sx={{ maxHeight: "80vh", minWidth: "500px", overflowY: "auto" }}>

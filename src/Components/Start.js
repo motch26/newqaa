@@ -1,11 +1,10 @@
 import React from "react";
 import ReactPlayer from "react-player/youtube";
 import { Container, Box, Grid, Paper, Typography } from "@mui/material";
-import { orange } from "@mui/material/colors";
 function Start() {
   return (
     <Container maxWidth="lg" sx={{ minWidth: "95vw" }}>
-      <Box>
+      <Box position="relative">
         <ReactPlayer
           controls
           url="https://youtu.be/170NuiBpXG4"

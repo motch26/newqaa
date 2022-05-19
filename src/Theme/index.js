@@ -32,6 +32,7 @@ const defaultTheme = createTheme({
     primary: {
       main: lightGreen[600],
       light: lightGreen[100],
+      dark: lightGreen[800],
     },
   },
 });

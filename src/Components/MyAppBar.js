@@ -17,9 +17,12 @@ import {
   FormControl,
   Select,
   Button,
+  Modal,
 } from "@mui/material";
+import StickyNote2Icon from "@mui/icons-material/StickyNote2";
 
 function MyAppBar() {
+  const [showCert, setShowCert] = useState(false);
   const { actions, program, isDropboxOpen, isLogsOpen } = useContext(Context);
   const [isLoggedOut, setLogOut] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(["userID", "isAdmin"]);
@@ -44,12 +47,19 @@ function MyAppBar() {
   return (
     <React.Fragment>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Carlos Hilado Memorial State University | Accreditation Management
-              System
-            </Typography>
+        <AppBar position="sticky">
+          <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Box display="flex" alignItems="center">
+              <img src="img/logo.png" alt="logo" width="40px" height="40px" />
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{ flexGrow: 1, ml: 2 }}
+              >
+                Carlos Hilado Memorial State University | Accreditation
+                Management System
+              </Typography>
+            </Box>
 
             <Box
               sx={{
@@ -89,6 +99,16 @@ function MyAppBar() {
               </Button>
               <Button
                 variant="contained"
+                color="info"
+                size="small"
+                sx={{ ml: 3 }}
+                startIcon={<StickyNote2Icon />}
+                onClick={() => setShowCert(true)}
+              >
+                COA
+              </Button>
+              <Button
+                variant="contained"
                 color="warning"
                 size="small"
                 sx={{ ml: 3 }}
@@ -124,6 +144,36 @@ function MyAppBar() {
           </Toolbar>
         </AppBar>
       </Box>
+      <Modal
+        open={showCert}
+        onClose={() => setShowCert(false)}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Box sx={{ background: "white", p: 1 }}>
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            textAlign="center"
+            sx={{ bgcolor: "primary.light" }}
+          >
+            Certificate of Authenticity
+          </Typography>
+          <img src="img/cert.png" style={{ maxWidth: "500px" }} />
+          {/* <Box
+            sx={{
+              width: 500,
+              height: 800,
+              border: "2px dashed ",
+              borderColor: "primary.main",
+            }}
+          ></Box> */}
+        </Box>
+      </Modal>
       {isLoggedOut ? <Navigate to="/" /> : null}
       {isDropboxOpen ? <Dropbox /> : null}
       {isLogsOpen ? <Logs /> : null}

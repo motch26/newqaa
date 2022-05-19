@@ -13,10 +13,13 @@ import {
   Alert,
   Avatar,
   Typography,
+  ThemeProvider,
+  Paper,
+  Link,
 } from "@mui/material";
 import { Lock } from "@mui/icons-material";
 import { blue, grey } from "@mui/material/colors";
-
+import theme from "../Theme";
 import { loginTitle, loginForm, loginButton } from "../Theme/Login";
 
 function Login() {
@@ -66,101 +69,182 @@ function Login() {
   }, [cookies.userID]);
 
   return (
-    <Box>
-      <Grid container bgcolor={grey[50]} height="95vh">
-        <Grid item xs={6}>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              alignContent: "center",
-              justifyContent: "center",
-              height: "90vh",
-            }}
-          >
-            <img src="img/logo.png" alt="logo" width={140} height={140} />
-            <Typography sx={loginTitle}>
-              Carlos Hilado Memorial State University
-            </Typography>
-            <Typography
+    <ThemeProvider theme={theme.defaultTheme}>
+      <Box
+        sx={{
+          backgroundImage: "url('img/bg.jpg')",
+          height: "100vh",
+        }}
+      >
+        <Grid container>
+          <Grid item xs={7}>
+            <Paper
               sx={{
-                fontSize: { xs: 20, sm: 30, md: 40 },
-                fontWeight: 300,
-                textAlign: "center",
-                bgcolor: "primary.light",
-                borderRadius: 4,
-                p: "2px 10px",
-                mt: 2,
+                bgcolor: "primary.dark",
+                maxWidth: "70%",
+                p: 2,
+                display: "flex",
+                alignItems: "center",
+                mt: 5,
               }}
+              elevation={24}
             >
-              Accreditation Management System
-            </Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={6}>
-          <Container maxWidth="md">
-            <Box component="form" sx={loginForm}>
-              <Stack
+              <img
+                src="img/logo.png"
+                width={70}
+                height={70}
+                style={{
+                  marginRight: 20,
+                  border: "2px solid white",
+                  padding: 2,
+                  backgroundColor: "white",
+                }}
+              />
+              <Box
                 sx={{
-                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  color: "white",
                 }}
               >
-                <Avatar
-                  sx={{ width: 40, height: 40, bgcolor: blue[500], mx: "auto" }}
+                <Typography
+                  display="inline"
+                  width="auto"
+                  lineHeight={1}
+                  variant="h4"
+                  fontWeight={600}
                 >
-                  <Lock />
-                </Avatar>
-                <h3>Username:</h3>
-                <TextField
-                  label="Enter your username"
-                  variant="outlined"
-                  onChange={changeUsername}
-                  size="small"
-                />
-                <h3>Password:</h3>
-                <TextField
-                  type="password"
-                  label="Enter your password"
-                  variant="outlined"
-                  onChange={changePassword}
-                  size="small"
-                />
-                <Button
-                  onClick={checkLogin}
-                  variant="contained"
-                  sx={loginButton}
+                  CARLOS HILADO MEMORIAL
+                </Typography>
+                <Typography
+                  display="inline"
+                  width="auto"
+                  lineHeight={1}
+                  variant="h4"
+                  fontWeight={600}
+                  color="primary.light"
                 >
-                  Sign-In
-                </Button>
-                {isWarningVisble ? (
-                  <Alert
-                    severity="error"
+                  State University
+                </Typography>
+              </Box>
+            </Paper>
+          </Grid>
+          <Grid item xs={5} sx={{}}>
+            <Box
+              sx={{
+                height: "100vh",
+                backgroundColor: "primary.light",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                p: 2,
+                position: "relative",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Typography sx={loginTitle}>CHMSU</Typography>
+                <Typography
+                  sx={{
+                    fontSize: { xs: 20, sm: 30, lg: 40 },
+                    textAlign: "center",
+                    fontWeight: 400,
+                    color: "primary.main",
+                    borderRadius: 4,
+                    p: "2px 10px",
+                    mb: 5,
+                    lineHeight: 1,
+                  }}
+                >
+                  Accreditation Management System
+                </Typography>
+                <Stack
+                  sx={{
+                    width: "100%",
+                    backgroundColor: "white",
+                    p: 2,
+                  }}
+                >
+                  <TextField
+                    label="Username"
+                    placeholder="Enter your username"
+                    variant="outlined"
+                    onChange={changeUsername}
                     sx={{
-                      marginTop: 2,
+                      mb: 2,
+                      border: "3px solid",
+                      borderColor: "primary.light",
                     }}
+                  />
+
+                  <TextField
+                    type="password"
+                    label="Password"
+                    placeholder="Enter your password"
+                    variant="outlined"
+                    sx={{ border: "3px solid", borderColor: "primary.light" }}
+                    onChange={changePassword}
+                  />
+                  <Button
+                    onClick={checkLogin}
+                    variant="contained"
+                    sx={loginButton}
+                    size="large"
                   >
-                    User not found! Please try again.
-                  </Alert>
-                ) : null}
-                {isServerError ? (
-                  <Alert
-                    severity="error"
-                    sx={{
-                      marginTop: 2,
-                    }}
+                    Sign-In
+                  </Button>
+                  {isWarningVisble ? (
+                    <Alert
+                      severity="error"
+                      sx={{
+                        marginTop: 2,
+                      }}
+                    >
+                      User not found! Please try again.
+                    </Alert>
+                  ) : null}
+                  {isServerError ? (
+                    <Alert
+                      severity="error"
+                      sx={{
+                        marginTop: 2,
+                      }}
+                    >
+                      Network Error!
+                    </Alert>
+                  ) : null}
+                  {userID ? <Navigate to="/user" /> : null}
+                </Stack>
+                <Container sx={{ mt: 5 }}>
+                  <Typography
+                    variant="h6"
+                    fontWeight={400}
+                    sx={{ lineHeight: 1.5 }}
+                    textAlign="center"
                   >
-                    Network Error!
-                  </Alert>
-                ) : null}
-                {userID ? <Navigate to="/user" /> : null}
-              </Stack>
+                    By using this service, you understood and agree to the{" "}
+                    <Link>
+                      {" "}
+                      CHMSU Online Services Terms of Use and Privacy Statement
+                      {"."}
+                    </Link>
+                  </Typography>
+                </Container>
+              </Box>
+              <Box sx={{ position: "absolute", bottom: 10 }}>
+                <Footer />
+              </Box>
             </Box>
-          </Container>
+          </Grid>
         </Grid>
-      </Grid>
-      <Footer />
-    </Box>
+      </Box>
+    </ThemeProvider>
   );
 }
 

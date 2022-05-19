@@ -100,7 +100,9 @@ function AreasFolder() {
                       areaContent={areaContent}
                     />
                     <Divider />
-                    <ButtonGroup sx={{ display: "flex", width: "100%" }}>
+                    <ButtonGroup
+                      sx={{ display: "flex", width: "100%", flexWrap: "wrap" }}
+                    >
                       <Button
                         variant="contained"
                         size="small"
@@ -136,14 +138,30 @@ function AreasFolder() {
                         size="small"
                         sx={{ width: "auto", mt: 1 }}
                         onClick={() => {
-                          actions.setFile("EXHIBIT");
                           actions.setAreaNum(areaNumber);
                           actions.setParameter("");
                           actions.setSubShown(true);
-                          actions.setDirectory(`${program}/${areaNumber}`);
+                          actions.setDirectory(
+                            `${program}/${areaNumber}/EXHIBIT`
+                          );
                         }}
                       >
                         Exhibit
+                      </Button>
+                      <Button
+                        variant="contained"
+                        size="small"
+                        sx={{ width: "auto", mt: 1 }}
+                        onClick={() => {
+                          actions.setPDFModalShown(true);
+                          actions.setFile("RATING");
+                          actions.setAreaNum(areaNumber);
+                          actions.setParameter("");
+                          actions.setSubShown(false);
+                          actions.setDirectory(`${program}/${areaNumber}`);
+                        }}
+                      >
+                        Self Rating
                       </Button>
                     </ButtonGroup>
                   </CardContent>

@@ -9,14 +9,14 @@ const Footer = () => {
         flexFlow: "column",
         justifyContent: "center",
         alignItems: "center",
-        mt: 2,
+        mt: "auto",
       }}
     >
       <Typography variant="caption">
         @Management Information System (MIS) 2022
       </Typography>
       <Typography variant="caption">
-        Information Communication Technology Offfice
+        Information Communication Technology Office
       </Typography>
     </Box>
   );
