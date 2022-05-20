@@ -12,11 +12,11 @@ const Footer = () => {
         mt: "auto",
       }}
     >
-      <Typography variant="caption">
-        @Management Information System (MIS) 2022
-      </Typography>
-      <Typography variant="caption">
+      <Typography variant="caption" lineHeight={1.2}>
         Information Communication Technology Office
+      </Typography>
+      <Typography variant="caption" lineHeight={1.2}>
+        Management Information System (MIS) 2022
       </Typography>
     </Box>
   );

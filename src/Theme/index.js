@@ -30,9 +30,9 @@ const BEED = createTheme({
 const defaultTheme = createTheme({
   palette: {
     primary: {
-      main: lightGreen[600],
-      light: lightGreen[100],
-      dark: lightGreen[800],
+      main: orange[500],
+      light: orange[100],
+      dark: orange[800],
     },
   },
 });

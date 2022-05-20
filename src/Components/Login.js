@@ -16,13 +16,16 @@ import {
   ThemeProvider,
   Paper,
   Link,
+  Modal,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
-import { Lock } from "@mui/icons-material";
-import { blue, grey } from "@mui/material/colors";
+
 import theme from "../Theme";
-import { loginTitle, loginForm, loginButton } from "../Theme/Login";
+import { loginTitle, loginButton } from "../Theme/Login";
 
 function Login() {
+  const [showPrivacy, setShowPrivacy] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [cookies, setCookie] = useCookies(["userID", "username", "isAdmin"]);
@@ -77,12 +80,13 @@ function Login() {
         }}
       >
         <Grid container>
-          <Grid item xs={7}>
+          <Grid item xs={12} md={7}>
             <Paper
               sx={{
                 bgcolor: "primary.dark",
-                maxWidth: "70%",
-                p: 2,
+                width: "fit-content",
+                minWidth: "30%",
+                p: 1,
                 display: "flex",
                 alignItems: "center",
                 mt: 5,
@@ -91,13 +95,12 @@ function Login() {
             >
               <img
                 src="img/logo.png"
-                width={70}
-                height={70}
+                width={90}
+                height={90}
                 style={{
                   marginRight: 20,
-                  border: "2px solid white",
+
                   padding: 2,
-                  backgroundColor: "white",
                 }}
               />
               <Box
@@ -111,25 +114,24 @@ function Login() {
                   display="inline"
                   width="auto"
                   lineHeight={1}
-                  variant="h4"
+                  sx={{ fontSize: { xs: 20, md: 25, lg: 30, xl: 40 }, mr: 2 }}
                   fontWeight={600}
                 >
-                  CARLOS HILADO MEMORIAL
+                  CARLOS HILADO MEMORIAL STATE UNIVERSITY
                 </Typography>
                 <Typography
                   display="inline"
                   width="auto"
                   lineHeight={1}
-                  variant="h4"
+                  variant="h3"
+                  sx={{ fontSize: { xs: 20, md: 25, lg: 30, xl: 40 } }}
                   fontWeight={600}
                   color="primary.light"
-                >
-                  State University
-                </Typography>
+                ></Typography>
               </Box>
             </Paper>
           </Grid>
-          <Grid item xs={5} sx={{}}>
+          <Grid item xs={12} md={5} sx={{}}>
             <Box
               sx={{
                 height: "100vh",
@@ -149,7 +151,23 @@ function Login() {
                   justifyContent: "center",
                 }}
               >
-                <Typography sx={loginTitle}>CHMSU</Typography>
+                <Typography
+                  sx={{
+                    fontWeight: 800,
+                    fontSize: { xs: 30, lg: 40, xl: 55 },
+                    color: "primary.dark",
+                    lineHeight: "1",
+                    textAlign: "center",
+                    width: "80%",
+                    color: "white",
+                    backgroundColor: "primary.dark",
+                    p: 1,
+                    borderRadius: 4,
+                    mb: 2,
+                  }}
+                >
+                  Accreditation Management System
+                </Typography>
                 <Typography
                   sx={{
                     fontSize: { xs: 20, sm: 30, lg: 40 },
@@ -162,11 +180,11 @@ function Login() {
                     lineHeight: 1,
                   }}
                 >
-                  Accreditation Management System
+                  (AMS)
                 </Typography>
                 <Stack
                   sx={{
-                    width: "100%",
+                    width: "60%",
                     backgroundColor: "white",
                     p: 2,
                   }}
@@ -222,20 +240,75 @@ function Login() {
                   {userID ? <Navigate to="/user" /> : null}
                 </Stack>
                 <Container sx={{ mt: 5 }}>
-                  <Typography
-                    variant="h6"
-                    fontWeight={400}
-                    sx={{ lineHeight: 1.5 }}
-                    textAlign="center"
-                  >
-                    By using this service, you understood and agree to the{" "}
-                    <Link>
+                  <Box>
+                    By using this service, you understood and agree to the
+                    <Link
+                      onClick={() => setShowPrivacy(true)}
+                      sx={{ cursor: "pointer" }}
+                    >
                       {" "}
                       CHMSU Online Services Terms of Use and Privacy Statement
                       {"."}
                     </Link>
-                  </Typography>
+                  </Box>
                 </Container>
+                <Modal
+                  open={showPrivacy}
+                  onClose={() => setShowPrivacy(false)}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      backgroundColor: "white",
+                      p: 1,
+                      borderRadius: 4,
+                      maxWidth: "60vw",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        backgroundColor: "primary.light",
+                        p: 1,
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Typography variant="h6">
+                        CHMSU Privacy Statement
+                      </Typography>
+                    </Box>
+
+                    <Typography variant="h6" fontWeight={400} sx={{ p: 2 }}>
+                      In compliance with Republic Act No. 10173, otherwise known
+                      as the Data Privacy Act of 2012. I hereby acknowledge that
+                      my personal information provided is solely used for Carlos
+                      Hilado Memorial State University. That by virtue of the
+                      said law, I freely give my consent and hereby agree to the
+                      collections, access and processing of my sensitive
+                      personal and privileged information - as defined under RA
+                      10173 - DPC Act 2012 for any legal and all legitimate
+                      interests of CHMSU as Higher Educational Institution.
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      sx={{
+                        bgcolor: "primary.main",
+                        ml: "auto",
+                        display: "block",
+                        width: "auto",
+                        mr: 2,
+                      }}
+                      onClick={() => setShowPrivacy(false)}
+                    >
+                      Proceed to Login
+                    </Button>
+                  </Box>
+                </Modal>
               </Box>
               <Box sx={{ position: "absolute", bottom: 10 }}>
                 <Footer />

@@ -13,6 +13,7 @@ import {
   Button,
   IconButton,
   ThemeProvider,
+  TextField,
 } from "@mui/material";
 import theme from "./../Theme";
 
@@ -81,8 +82,25 @@ function PDFModal() {
             alignItems: "center",
           }}
         >
-          <Typography variant="body1">
-            Page {pageNumber} of {numPages}
+          <Typography
+            variant="body1"
+            sx={{ display: "flex", alignItems: "center" }}
+          >
+            Page{" "}
+            <TextField
+              type="number"
+              variant="standard"
+              defaultValue="1"
+              sx={{ width: 30, ml: 1 }}
+              InputProps={{
+                inputProps: { min: 1, max: numPages },
+              }}
+              onKeyUp={(e) => {
+                if (e.target.value && parseInt(e.target.value) < numPages)
+                  setPageNumber(parseInt(e.target.value));
+              }}
+            />{" "}
+            of {numPages}
           </Typography>
           <Box>
             <IconButton

@@ -20,6 +20,7 @@ import {
   Modal,
 } from "@mui/material";
 import StickyNote2Icon from "@mui/icons-material/StickyNote2";
+import { blue, orange } from "@mui/material/colors";
 
 function MyAppBar() {
   const [showCert, setShowCert] = useState(false);
@@ -50,7 +51,7 @@ function MyAppBar() {
         <AppBar position="sticky">
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
             <Box display="flex" alignItems="center">
-              <img src="img/logo.png" alt="logo" width="40px" height="40px" />
+              <img src="img/logo.png" alt="logo" width="50px" height="50px" />
               <Typography
                 variant="h6"
                 component="div"
@@ -80,11 +81,17 @@ function MyAppBar() {
                   sx={{ p: 1, borderRadius: 5 }}
                 >
                   <MenuItem disabled value="">
-                    Program
+                    Programs
                   </MenuItem>
-                  <MenuItem value="BSIT">BSIT</MenuItem>
-                  <MenuItem value="BSED">BSED</MenuItem>
-                  <MenuItem value="BEED">BEED</MenuItem>
+                  <MenuItem sx={{ bgcolor: orange[400] }} value="BSIT">
+                    BSIT
+                  </MenuItem>
+                  <MenuItem sx={{ bgcolor: blue[200] }} value="BSED">
+                    BSED
+                  </MenuItem>
+                  <MenuItem sx={{ bgcolor: blue[200] }} value="BEED">
+                    BEED
+                  </MenuItem>
                 </Select>
               </FormControl>
               <Button
@@ -164,14 +171,6 @@ function MyAppBar() {
             Certificate of Authenticity
           </Typography>
           <img src="img/cert.png" style={{ maxWidth: "500px" }} />
-          {/* <Box
-            sx={{
-              width: 500,
-              height: 800,
-              border: "2px dashed ",
-              borderColor: "primary.main",
-            }}
-          ></Box> */}
         </Box>
       </Modal>
       {isLoggedOut ? <Navigate to="/" /> : null}

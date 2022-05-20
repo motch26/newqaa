@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import axios from "axios";
+import { useCookies } from "react-cookie";
 import moment from "moment";
 import { Context } from "./../Context";
 import {
@@ -10,11 +12,23 @@ import {
   Chip,
   Typography,
   Divider,
+  Button,
+  ButtonGroup,
 } from "@mui/material";
 
 export const UploadedPDFList = React.forwardRef(
   ({ handleModalOpen, dates, rows }, ref) => {
     const { actions, program, areaNum, parameter, file } = useContext(Context);
+    const [cookies, setCookie, removeCookie] = useCookies(["username"]);
+    const deleteList = (e, id) => {
+      axios
+        .get(`http://ams.chmsc.edu.ph/api/deleteList.php?id=${id}`)
+        .then((res) => {
+          console.log(res.data);
+          const currentList = e.target.parentElement;
+          currentList.parentNode.removeChild(currentList);
+        });
+    };
     return (
       <Box ref={ref}>
         {dates.length ? (
@@ -31,13 +45,6 @@ export const UploadedPDFList = React.forwardRef(
                     return (
                       <>
                         <ListItemButton
-                          onClick={() => {
-                            actions.setFile(fileName);
-                            actions.setDirectory(
-                              `${program}/${areaNum}/${parameter}`
-                            );
-                            handleModalOpen();
-                          }}
                           sx={{
                             display: "flex",
                             justifyContent: "space-between",
@@ -62,6 +69,24 @@ export const UploadedPDFList = React.forwardRef(
                               size="small"
                             />
                           </Stack>
+                          <ButtonGroup>
+                            <Button
+                              onClick={() => {
+                                actions.setFile(fileName);
+                                actions.setDirectory(
+                                  `${program}/${areaNum}/${parameter}`
+                                );
+                                handleModalOpen();
+                              }}
+                            >
+                              View
+                            </Button>
+                            {cookies.username === "accreditor" ? null : (
+                              <Button onClick={(e) => deleteList(e, row.id)}>
+                                Delete
+                              </Button>
+                            )}
+                          </ButtonGroup>
                         </ListItemButton>
                         <Divider />
                       </>
