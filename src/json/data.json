@@ -3790,7 +3790,7 @@
                 },
                 { "S.2.2": "research staff;" },
                 { "S.2.3": "supplies and materials; and" },
-                { "S.3.4": "workplace." }
+                { "S.2.4": "workplace." }
               ],
               "IMPLEMENTATION": [
                 {
@@ -4819,7 +4819,15 @@
           },
           {
             "PARAMETERF": {
-              "SYSTEMS": [{ "S.1": "" }, { "S.2": "" }, { "S.3": "" }],
+              "SYSTEMS": [
+                { "S.1": "The Institution has a system of records keeping." },
+                {
+                  "S.2": "The institution has policies and procedures to ensure the confidentiality of records."
+                },
+                {
+                  "S.3": "Policies and procedures on prompt release of records are in place."
+                }
+              ],
               "IMPLEMENTATION": [
                 {
                   "I.1": "The Institution maintains a Records Management Office (RMO) managed by a qualified Records Officer."
@@ -6066,7 +6074,7 @@
                 },
                 { "S.2.2": "research staff;" },
                 { "S.2.3": "supplies and materials; and" },
-                { "S.3.4": "workplace." }
+                { "S.2.4": "workplace." }
               ],
               "IMPLEMENTATION": [
                 {
@@ -7010,7 +7018,7 @@
                 {
                   "O.1": "The institution has an effective and functional Student Administration."
                 },
-                { "O.1": "Policy implementation is efficient." }
+                { "O.2": "Policy implementation is efficient." }
               ]
             }
           },

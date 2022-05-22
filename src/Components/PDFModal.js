@@ -66,7 +66,7 @@ function PDFModal() {
             parameter ? `- P.${parameter.slice(-1)}.` : ""
           } - ${file}`}</Typography>
         </Box>
-        <Box sx={{ maxHeight: "80vh", minWidth: "500px", overflowY: "auto" }}>
+        <Box sx={{ maxHeight: "80vh", minWidth: "500px", maxWidth: "90vw", overflowY: "auto" }}>
           <Document
             file={`pdf/${directory}/${file}.pdf`}
             onLoadSuccess={pdfLoaded}
@@ -91,6 +91,7 @@ function PDFModal() {
               type="number"
               variant="standard"
               defaultValue="1"
+              value={pageNumber}
               sx={{ width: 30, ml: 1 }}
               InputProps={{
                 inputProps: { min: 1, max: numPages },

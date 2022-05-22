@@ -199,7 +199,11 @@ function MyAppBar() {
                 size="small"
                 sx={{ ml: 3 }}
                 startIcon={<LogoutIcon />}
-                onClick={logout}
+                onClick={() => {
+                  logout();
+                  actions.setProgram("");
+                  actions.setProgramData(null);
+                }}
               >
                 Logout
               </Button>
