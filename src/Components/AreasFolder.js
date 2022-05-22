@@ -11,7 +11,7 @@ import {
   Fab,
   ButtonGroup,
 } from "@mui/material";
-import AssessmentIcon from "@mui/icons-material/Assessment";
+import { useCookies } from "react-cookie";
 import SideList from "./SideList";
 import PDFModal from "./PDFModal";
 
@@ -32,6 +32,8 @@ function AreasFolder() {
     actions,
   } = useContext(Context);
 
+  const [cookies, setCookie, removeCookie] = useCookies(["username"]);
+
   return (
     <Box sx={{ width: "90vw", mx: "auto", position: "relative" }}>
       <Typography
@@ -50,8 +52,13 @@ function AreasFolder() {
           alignSelf="self-start"
         >
           {programData.map((area, index) => {
-            const areaNumber = Object.keys(area)[0];
-            const areaContent = area[areaNumber];
+            let areaNumber = Object.keys(area)[0];
+            let areaContent;
+            if (cookies.username === "library") {
+              if (areaNumber === "AREA7") areaContent = area[areaNumber];
+              else areaContent = null;
+            } else areaContent = area[areaNumber];
+            console.log(areaNumber);
             const intAreaNum = parseInt(areaNumber.slice(4));
             function convertToRoman(num) {
               var roman = {
@@ -79,95 +86,103 @@ function AreasFolder() {
 
               return str;
             }
-            return (
-              <Grid item md={4} xs={6} onClick={setSubShown} key={index}>
-                <Card sx={areaFolder}>
-                  <CardContent>
-                    <Box sx={{ bgcolor: "primary.light", p: 2 }}>
-                      <Typography variant="h5" component="div">
-                        {`Area ${convertToRoman(intAreaNum)}`}
+            if (areaContent) {
+              return (
+                <Grid item md={4} xs={6} onClick={setSubShown} key={index}>
+                  <Card sx={areaFolder}>
+                    <CardContent>
+                      <Box sx={{ bgcolor: "primary.light", p: 2 }}>
+                        <Typography variant="h5" component="div">
+                          {`Area ${convertToRoman(intAreaNum)}`}
+                        </Typography>
+                        <Typography variant="body1">
+                          {desc[areaNumber]}
+                        </Typography>
+                      </Box>
+                      <Divider />
+                      <Typography variant="body2" mt={1}>
+                        Parameters:
                       </Typography>
-                      <Typography variant="body1">
-                        {desc[areaNumber]}
-                      </Typography>
-                    </Box>
-                    <Divider />
-                    <Typography variant="body2" mt={1}>
-                      Parameters:
-                    </Typography>
-                    <Parameters
-                      areaNumber={areaNumber}
-                      areaContent={areaContent}
-                    />
-                    <Divider />
-                    <ButtonGroup
-                      sx={{ display: "flex", width: "100%", flexWrap: "wrap" }}
-                    >
-                      <Button
-                        variant="contained"
-                        size="small"
-                        sx={{ width: "auto", mt: 1 }}
-                        onClick={() => {
-                          actions.setPDFModalShown(true);
-                          actions.setFile("COMPLIANCE");
-                          actions.setAreaNum(areaNumber);
-                          actions.setParameter("");
-                          actions.setSubShown(false);
-                          actions.setDirectory(`${program}/${areaNumber}`);
+
+                      <Parameters
+                        areaNumber={areaNumber}
+                        areaContent={areaContent}
+                      />
+
+                      <Divider />
+                      <ButtonGroup
+                        sx={{
+                          display: "flex",
+                          width: "100%",
+                          flexWrap: "wrap",
                         }}
                       >
-                        Compliance
-                      </Button>
-                      <Button
-                        variant="contained"
-                        size="small"
-                        sx={{ width: "auto", mt: 1 }}
-                        onClick={() => {
-                          actions.setPDFModalShown(true);
-                          actions.setFile("PPP");
-                          actions.setAreaNum(areaNumber);
-                          actions.setParameter("");
-                          actions.setSubShown(false);
-                          actions.setDirectory(`${program}/${areaNumber}`);
-                        }}
-                      >
-                        PPP
-                      </Button>
-                      <Button
-                        variant="contained"
-                        size="small"
-                        sx={{ width: "auto", mt: 1 }}
-                        onClick={() => {
-                          actions.setAreaNum(areaNumber);
-                          actions.setParameter("");
-                          actions.setSubShown(true);
-                          actions.setDirectory(
-                            `${program}/${areaNumber}/EXHIBIT`
-                          );
-                        }}
-                      >
-                        Exhibit
-                      </Button>
-                      <Button
-                        variant="contained"
-                        size="small"
-                        sx={{ width: "auto", mt: 1 }}
-                        onClick={() => {
-                          actions.setPDFModalShown(true);
-                          actions.setFile("RATING");
-                          actions.setAreaNum(areaNumber);
-                          actions.setParameter("");
-                          actions.setSubShown(false);
-                          actions.setDirectory(`${program}/${areaNumber}`);
-                        }}
-                      >
-                        Self Rating
-                      </Button>
-                    </ButtonGroup>
-                  </CardContent>
-                </Card>
-              </Grid>
-            );
+                        <Button
+                          variant="contained"
+                          size="small"
+                          sx={{ width: "auto", mt: 1 }}
+                          onClick={() => {
+                            actions.setPDFModalShown(true);
+                            actions.setFile("COMPLIANCE");
+                            actions.setAreaNum(areaNumber);
+                            actions.setParameter("");
+                            actions.setSubShown(false);
+                            actions.setDirectory(`${program}/${areaNumber}`);
+                          }}
+                        >
+                          Compliance
+                        </Button>
+                        <Button
+                          variant="contained"
+                          size="small"
+                          sx={{ width: "auto", mt: 1 }}
+                          onClick={() => {
+                            actions.setPDFModalShown(true);
+                            actions.setFile("PPP");
+                            actions.setAreaNum(areaNumber);
+                            actions.setParameter("");
+                            actions.setSubShown(false);
+                            actions.setDirectory(`${program}/${areaNumber}`);
+                          }}
+                        >
+                          PPP
+                        </Button>
+                        <Button
+                          variant="contained"
+                          size="small"
+                          sx={{ width: "auto", mt: 1 }}
+                          onClick={() => {
+                            actions.setAreaNum(areaNumber);
+                            actions.setParameter("");
+                            actions.setSubShown(true);
+                            actions.setDirectory(
+                              `${program}/${areaNumber}/EXHIBIT`
+                            );
+                          }}
+                        >
+                          Exhibit
+                        </Button>
+                        <Button
+                          variant="contained"
+                          size="small"
+                          sx={{ width: "auto", mt: 1 }}
+                          onClick={() => {
+                            actions.setPDFModalShown(true);
+                            actions.setFile("RATING");
+                            actions.setAreaNum(areaNumber);
+                            actions.setParameter("");
+                            actions.setSubShown(false);
+                            actions.setDirectory(`${program}/${areaNumber}`);
+                          }}
+                        >
+                          Self Rating
+                        </Button>
+                      </ButtonGroup>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              );
+            }
           })}
         </Grid>
         {isSubShown ? <SideList /> : null}

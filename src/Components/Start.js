@@ -1,7 +1,18 @@
-import React from "react";
-import ReactPlayer from "react-player/youtube";
-import { Container, Box, Grid, Paper, Typography } from "@mui/material";
+import React, { useState } from "react";
+import ReactPlayer from "react-player";
+import {
+  Container,
+  Box,
+  Grid,
+  Paper,
+  Typography,
+  Fab,
+  Modal,
+} from "@mui/material";
+import NavigationIcon from "@mui/icons-material/Navigation";
 function Start() {
+  const [showVideo, setShowVideo] = useState(false);
+
   return (
     <Container maxWidth="lg" sx={{ minWidth: "95vw" }}>
       <Box position="relative">
@@ -144,6 +155,33 @@ function Start() {
             </Paper>
           </Grid>
         </Grid>
+        <Fab
+          onClick={() => setShowVideo(true)}
+          variant="extended"
+          color="primary"
+          sx={{ position: "fixed", bottom: 50, right: 50 }}
+        >
+          <NavigationIcon sx={{ mr: 1 }} />
+          Navigation Guide
+        </Fab>
+        <Modal
+          open={showVideo}
+          onClose={() => setShowVideo(false)}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Box sx={{ height: "80vh" }}>
+            <ReactPlayer
+              controls
+              url={[{ src: "video/guide.mp4", type: "video/mp4" }]}
+              width="100%"
+              height="100%"
+            />
+          </Box>
+        </Modal>
       </Box>
     </Container>
   );

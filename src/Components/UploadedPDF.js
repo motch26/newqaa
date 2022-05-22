@@ -58,6 +58,7 @@ function UploadedPDF({ handleModalOpen }) {
         ref={componentRef}
         dates={dates}
         rows={rows}
+        refresh={refresh}
         handleModalOpen={handleModalOpen}
       />
     </Box>

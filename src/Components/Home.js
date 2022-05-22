@@ -12,7 +12,7 @@ function Home() {
 
   return (
     <ThemeProvider theme={program ? theme[program] : theme.defaultTheme}>
-      <Box>
+      <Box sx={{ minHeight: "95vh" }}>
         <MyAppBar />
         {program ? <AreasFolder /> : <Start />}
       </Box>

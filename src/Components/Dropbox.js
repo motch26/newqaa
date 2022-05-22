@@ -26,9 +26,9 @@ import { orange } from "@mui/material/colors";
 import paramJSON from "./../json/parameters.json";
 function Dropbox() {
   const { actions, file, isDropboxOpen } = useContext(Context);
-  const [cookies] = useCookies(["username"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["username"]);
   const [_file, setFile] = useState(null);
-  const [seeFiles, setSeeFiles] = useState(false);
+  const [seeFiles, setSeeFiles] = useState(true);
   const [_program, setProgram] = useState("");
   const [_areaNum, setAreaNum] = useState("");
   const [_parameter, setParameter] = useState("");
@@ -95,12 +95,13 @@ function Dropbox() {
         <DialogContent sx={{ maxHeight: "80vh" }}>
           {seeFiles ? (
             <>
-              <Chip
-                size="small"
-                label="Upload PDF File"
-                onClick={() => navigateDropbox(false)}
-              />
-
+              {["admin", "qaa"].includes(cookies.username) ? (
+                <Chip
+                  size="small"
+                  label="Upload PDF File"
+                  onClick={() => navigateDropbox(false)}
+                />
+              ) : null}
               <UploadedPDF handleModalOpen={handleModalOpen} />
             </>
           ) : (
@@ -178,7 +179,7 @@ function Dropbox() {
                 <Chip
                   size="small"
                   onClick={() => navigateDropbox(true)}
-                  label="See List of Uploads"
+                  label="Additional Documents"
                 />
               </Box>
               {isUpdateSuccess ? (

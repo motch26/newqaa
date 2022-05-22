@@ -26,7 +26,11 @@ function MyAppBar() {
   const [showCert, setShowCert] = useState(false);
   const { actions, program, isDropboxOpen, isLogsOpen } = useContext(Context);
   const [isLoggedOut, setLogOut] = useState(false);
-  const [cookies, setCookie, removeCookie] = useCookies(["userID", "isAdmin"]);
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "userID",
+    "isAdmin",
+    "username",
+  ]);
 
   const logout = () => {
     removeCookie("userID", { path: "/" });
@@ -73,26 +77,78 @@ function MyAppBar() {
                 size="small"
                 sx={{ minWidth: 150, borderRadius: 2, bgcolor: "white" }}
               >
-                <Select
-                  value={program}
-                  label="college"
-                  displayEmpty
-                  onChange={handleProgramChange}
-                  sx={{ p: 1, borderRadius: 5 }}
-                >
-                  <MenuItem disabled value="">
-                    Programs
-                  </MenuItem>
-                  <MenuItem sx={{ bgcolor: orange[400] }} value="BSIT">
-                    BSIT
-                  </MenuItem>
-                  <MenuItem sx={{ bgcolor: blue[200] }} value="BSED">
-                    BSED
-                  </MenuItem>
-                  <MenuItem sx={{ bgcolor: blue[200] }} value="BEED">
-                    BEED
-                  </MenuItem>
-                </Select>
+                {["accreditor", "qaa", "admin", "library"].includes(
+                  cookies.username
+                ) ? (
+                  <Select
+                    value={program}
+                    label="college"
+                    displayEmpty
+                    onChange={handleProgramChange}
+                    sx={{ p: 1, borderRadius: 5 }}
+                  >
+                    <MenuItem disabled value="">
+                      Programs
+                    </MenuItem>
+                    <MenuItem sx={{ bgcolor: orange[400] }} value="BSIT">
+                      BSIT
+                    </MenuItem>
+                    <MenuItem sx={{ bgcolor: blue[200] }} value="BSED">
+                      BSED
+                    </MenuItem>
+                    <MenuItem sx={{ bgcolor: blue[200] }} value="BEED">
+                      BEED
+                    </MenuItem>
+                  </Select>
+                ) : null}
+                {cookies.username === "bsit" ? (
+                  <Select
+                    value={program}
+                    label="college"
+                    displayEmpty
+                    onChange={handleProgramChange}
+                    sx={{ p: 1, borderRadius: 5 }}
+                  >
+                    <MenuItem disabled value="">
+                      Programs
+                    </MenuItem>
+                    <MenuItem sx={{ bgcolor: orange[400] }} value="BSIT">
+                      BSIT
+                    </MenuItem>
+                  </Select>
+                ) : null}
+                {cookies.username === "bsed" ? (
+                  <Select
+                    value={program}
+                    label="college"
+                    displayEmpty
+                    onChange={handleProgramChange}
+                    sx={{ p: 1, borderRadius: 5 }}
+                  >
+                    <MenuItem disabled value="">
+                      Programs
+                    </MenuItem>
+                    <MenuItem sx={{ bgcolor: blue[200] }} value="BSED">
+                      BSED
+                    </MenuItem>
+                  </Select>
+                ) : null}
+                {cookies.username === "beed" ? (
+                  <Select
+                    value={program}
+                    label="college"
+                    displayEmpty
+                    onChange={handleProgramChange}
+                    sx={{ p: 1, borderRadius: 5 }}
+                  >
+                    <MenuItem disabled value="">
+                      Programs
+                    </MenuItem>
+                    <MenuItem sx={{ bgcolor: blue[200] }} value="BEED">
+                      BEED
+                    </MenuItem>
+                  </Select>
+                ) : null}
               </FormControl>
               <Button
                 variant="contained"

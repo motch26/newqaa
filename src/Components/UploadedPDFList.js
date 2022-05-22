@@ -17,16 +17,19 @@ import {
 } from "@mui/material";
 
 export const UploadedPDFList = React.forwardRef(
-  ({ handleModalOpen, dates, rows }, ref) => {
+  ({ handleModalOpen, dates, rows, refresh }, ref) => {
     const { actions, program, areaNum, parameter, file } = useContext(Context);
     const [cookies, setCookie, removeCookie] = useCookies(["username"]);
-    const deleteList = (e, id) => {
+    const deleteList = (e, id, program, areaNum, parameter, fileName) => {
       axios
-        .get(`http://ams.chmsc.edu.ph/api/deleteList.php?id=${id}`)
+        .get(
+          `http://ams.chmsc.edu.ph/api/deleteList.php?id=${id}&program=${program}&areaNum=${areaNum}&parameter=${parameter}&fileName=${fileName}`
+        )
         .then((res) => {
           console.log(res.data);
           const currentList = e.target.parentElement;
           currentList.parentNode.removeChild(currentList);
+          refresh();
         });
     };
     return (
@@ -39,8 +42,14 @@ export const UploadedPDFList = React.forwardRef(
                   {moment(date, "YYYY-MM-DD").format("MMM DD, YYYY")}
                 </ListSubheader>
                 {rows.map((row, index) => {
-                  const { program, areaNum, parameter, fileName, dateUpload } =
-                    row;
+                  const {
+                    id,
+                    program,
+                    areaNum,
+                    parameter,
+                    fileName,
+                    dateUpload,
+                  } = row;
                   if (dateUpload === date) {
                     return (
                       <>
@@ -51,20 +60,20 @@ export const UploadedPDFList = React.forwardRef(
                           }}
                           key={index}
                         >
-                          {row.fileName}
+                          {fileName}
                           <Stack direction="row" spacing={2}>
                             <Chip
-                              label={row.program}
+                              label={program}
                               color="warning"
                               size="small"
                             />
                             <Chip
-                              label={`Area ${row.areaNum.slice(-1)}`}
+                              label={`Area ${areaNum.slice(-1)}`}
                               color="warning"
                               size="small"
                             />
                             <Chip
-                              label={`Parameter ${row.parameter.slice(-1)}`}
+                              label={`Parameter ${parameter.slice(-1)}`}
                               color="warning"
                               size="small"
                             />
@@ -81,11 +90,22 @@ export const UploadedPDFList = React.forwardRef(
                             >
                               View
                             </Button>
-                            {cookies.username === "accreditor" ? null : (
-                              <Button onClick={(e) => deleteList(e, row.id)}>
+                            {["admin", "qaa"].includes(cookies.username) ? (
+                              <Button
+                                onClick={(e) =>
+                                  deleteList(
+                                    e,
+                                    id,
+                                    program,
+                                    areaNum,
+                                    parameter,
+                                    fileName
+                                  )
+                                }
+                              >
                                 Delete
                               </Button>
-                            )}
+                            ) : null}
                           </ButtonGroup>
                         </ListItemButton>
                         <Divider />
