@@ -68,7 +68,8 @@
           "IMPLEMENTATION": ["I.4"]
         },
         "PARAMETERD": {
-          "SYSTEMS": ["S.13", "S.15", "S.18"]
+          "SYSTEMS": ["S.13", "S.15", "S.18"],
+          "IMPLEMENTATION": ["I.3"]
         }
       },
       "AREA5": {

@@ -2,13 +2,11 @@ import React, { useContext } from "react";
 import {
   Box,
   Card,
-  CardMedia,
   CardContent,
   Typography,
   Grid,
   Divider,
   Button,
-  Fab,
   ButtonGroup,
 } from "@mui/material";
 import { useCookies } from "react-cookie";
@@ -58,7 +56,6 @@ function AreasFolder() {
               if (areaNumber === "AREA7") areaContent = area[areaNumber];
               else areaContent = null;
             } else areaContent = area[areaNumber];
-            console.log(areaNumber);
             const intAreaNum = parseInt(areaNumber.slice(4));
             function convertToRoman(num) {
               var roman = {
@@ -147,7 +144,7 @@ function AreasFolder() {
                         >
                           PPP
                         </Button>
-                        <Button
+                        {/* <Button
                           variant="contained"
                           size="small"
                           sx={{ width: "auto", mt: 1 }}
@@ -161,7 +158,7 @@ function AreasFolder() {
                           }}
                         >
                           Exhibit
-                        </Button>
+                        </Button> */}
                         <Button
                           variant="contained"
                           size="small"

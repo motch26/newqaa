@@ -230,7 +230,7 @@ function MyAppBar() {
           >
             Certificate of Authenticity
           </Typography>
-          <img src="img/cert.png" style={{ maxWidth: "500px" }} />
+          <img src="img/cert.png" alt="cert" style={{ maxWidth: "500px" }} />
         </Box>
       </Modal>
       {isLoggedOut ? <Navigate to="/" /> : null}

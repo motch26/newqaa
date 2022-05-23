@@ -11,18 +11,15 @@ import {
   Button,
   Grid,
   Alert,
-  Avatar,
   Typography,
   ThemeProvider,
   Paper,
   Link,
   Modal,
-  FormControlLabel,
-  Checkbox,
 } from "@mui/material";
 
 import theme from "../Theme";
-import { loginTitle, loginButton } from "../Theme/Login";
+import { loginButton } from "../Theme/Login";
 
 function Login() {
   const [showPrivacy, setShowPrivacy] = useState(true);
@@ -95,6 +92,7 @@ function Login() {
             >
               <img
                 src="img/logo.png"
+                alt="logo"
                 width={90}
                 height={90}
                 style={{
@@ -155,7 +153,6 @@ function Login() {
                   sx={{
                     fontWeight: 800,
                     fontSize: { xs: 30, lg: 40, xl: 55 },
-                    color: "primary.dark",
                     lineHeight: "1",
                     textAlign: "center",
                     width: "80%",
