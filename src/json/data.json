@@ -2818,10 +2818,7 @@
                 { "I.1.1.1": "General Education - 63 units" },
                 { "I.1.1.2": "Professional Education - 54 units" },
                 { "I.1.1.3": "Specialization - 57 units" },
-                { "I.1.2": "BSEd" },
-                { "I.1.2.1": "General Education - 63 units" },
-                { "I.1.2.2": "Professional Education - 51 units" },
-                { "I.1.2.3": "Specialization - 60 units" },
+
                 {
                   "I.2": "The subjects  are logically sequenced and prerequisite courses are identified."
                 },

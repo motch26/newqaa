@@ -7,7 +7,7 @@ function index() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route path="/:userID" element={<Home />} />
+      <Route path="/user" element={<Home />} />
     </Routes>
   );
 }
