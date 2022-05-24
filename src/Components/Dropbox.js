@@ -23,7 +23,6 @@ import DropboxContent from "./DropboxContent";
 import DropboxModal from "./DropboxModal";
 import UploadedPDF from "./UploadedPDF";
 import { orange } from "@mui/material/colors";
-import paramJSON from "./../json/parameters.json";
 function Dropbox() {
   const { actions, file, isDropboxOpen } = useContext(Context);
   const [cookies, setCookie, removeCookie] = useCookies(["username"]);
@@ -31,7 +30,6 @@ function Dropbox() {
   const [seeFiles, setSeeFiles] = useState(true);
   const [_program, setProgram] = useState("");
   const [_areaNum, setAreaNum] = useState("");
-  const [_parameter, setParameter] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
 
   const [isUpdateSuccess, setUpdateSuccess] = useState(false);
@@ -42,7 +40,6 @@ function Dropbox() {
   const handleModalClose = () => setModalOpen(false);
   const handleProgramChange = (e) => setProgram(e.target.value);
   const handleAreaChange = (e) => setAreaNum(e.target.value);
-  const handleParameterChange = (e) => setParameter(e.target.value);
 
   const onDrop = (file) => {
     setFile(file);
@@ -60,7 +57,6 @@ function Dropbox() {
     formData.append("pdf", fileToUpload);
     formData.append("program", _program);
     formData.append("areaNum", _areaNum);
-    formData.append("parameter", _parameter);
     formData.append("user", cookies.username);
     axios
       .post(`http://ams.chmsc.edu.ph/api/upload.php`, formData, {
@@ -113,75 +109,46 @@ function Dropbox() {
                 handleChange={(file) => onDrop(file)}
                 children={<DropboxContent file={_file} />}
               />
-              <Grid container>
-                <Grid item xs={4}>
-                  <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                    <InputLabel>Program</InputLabel>
-                    <Select onChange={handleProgramChange} defaultValue="">
-                      <MenuItem value="BSIT">BSIT</MenuItem>
-                      <MenuItem value="BSED">BSED</MenuItem>
-                      <MenuItem value="BEED">BEED</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item xs={4}>
-                  <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                    <InputLabel>Area</InputLabel>
-                    <Select onChange={handleAreaChange} defaultValue="">
-                      <MenuItem value="AREA1">AREA I</MenuItem>
-                      <MenuItem value="AREA2">AREA II</MenuItem>
-                      <MenuItem value="AREA3">AREA III</MenuItem>
-                      <MenuItem value="AREA4">AREA IV</MenuItem>
-                      <MenuItem value="AREA5">AREA V</MenuItem>
-                      <MenuItem value="AREA6">AREA VI</MenuItem>
-                      <MenuItem value="AREA7">AREA VII</MenuItem>
-                      <MenuItem value="AREA8">AREA VIII</MenuItem>
-                      <MenuItem value="AREA9">AREA IX</MenuItem>
-                      <MenuItem value="AREA10">AREA X</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item xs={4}>
-                  <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                    <InputLabel>Parameter</InputLabel>
-                    {_areaNum ? (
-                      <Select onChange={handleParameterChange} defaultValue="">
-                        {paramJSON["data"][_areaNum].map((param) => {
-                          return (
-                            <MenuItem value={param}>{`Parameter ${param.slice(
-                              -1
-                            )}`}</MenuItem>
-                          );
-                        })}
-                      </Select>
-                    ) : (
-                      <Select>
-                        <MenuItem>Please select an area first</MenuItem>
-                      </Select>
-                    )}
-                  </FormControl>
-                </Grid>
-              </Grid>
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "space-around",
                   alignItems: "center",
                 }}
               >
-                <Button
-                  variant="contained"
-                  sx={{ mt: 1, mx: "auto", px: 5 }}
-                  onClick={() => uploadPDF(_file)}
-                >
+                <FormControl sx={{ m: 1, minWidth: 150 }} size="small">
+                  <InputLabel>Program</InputLabel>
+                  <Select onChange={handleProgramChange} defaultValue="">
+                    <MenuItem value="BSIT">BSIT</MenuItem>
+                    <MenuItem value="BSED">BSED</MenuItem>
+                    <MenuItem value="BEED">BEED</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl sx={{ m: 1, minWidth: 150 }} size="small">
+                  <InputLabel>Area</InputLabel>
+                  <Select onChange={handleAreaChange} defaultValue="">
+                    <MenuItem value="AREA1">AREA I</MenuItem>
+                    <MenuItem value="AREA2">AREA II</MenuItem>
+                    <MenuItem value="AREA3">AREA III</MenuItem>
+                    <MenuItem value="AREA4">AREA IV</MenuItem>
+                    <MenuItem value="AREA5">AREA V</MenuItem>
+                    <MenuItem value="AREA6">AREA VI</MenuItem>
+                    <MenuItem value="AREA7">AREA VII</MenuItem>
+                    <MenuItem value="AREA8">AREA VIII</MenuItem>
+                    <MenuItem value="AREA9">AREA IX</MenuItem>
+                    <MenuItem value="AREA10">AREA X</MenuItem>
+                  </Select>
+                </FormControl>
+                <Button variant="contained" onClick={() => uploadPDF(_file)}>
                   Submit
                 </Button>
                 <Chip
                   size="small"
                   onClick={() => navigateDropbox(true)}
                   label="Additional Documents"
+                  sx={{ ml: "auto" }}
                 />
               </Box>
+
               {isUpdateSuccess ? (
                 <Alert severity="success" sx={{ mt: 1 }}>
                   File successfully uploaded.

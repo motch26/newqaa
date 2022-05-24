@@ -23,7 +23,7 @@ export const UploadedPDFList = React.forwardRef(
     const deleteList = (e, id, program, areaNum, parameter, fileName) => {
       axios
         .get(
-          `http://ams.chmsc.edu.ph/api/deleteList.php?id=${id}&program=${program}&areaNum=${areaNum}&parameter=${parameter}&fileName=${fileName}`
+          `http://ams.chmsc.edu.ph/api/deleteList.php?id=${id}&program=${program}&areaNum=${areaNum}&fileName=${fileName}`
         )
         .then((res) => {
           console.log(res.data);
@@ -42,14 +42,7 @@ export const UploadedPDFList = React.forwardRef(
                   {moment(date, "YYYY-MM-DD").format("MMM DD, YYYY")}
                 </ListSubheader>
                 {rows.map((row, index) => {
-                  const {
-                    id,
-                    program,
-                    areaNum,
-                    parameter,
-                    fileName,
-                    dateUpload,
-                  } = row;
+                  const { id, program, areaNum, fileName, dateUpload } = row;
                   if (dateUpload === date) {
                     return (
                       <>
@@ -72,11 +65,6 @@ export const UploadedPDFList = React.forwardRef(
                               color="warning"
                               size="small"
                             />
-                            <Chip
-                              label={`Parameter ${parameter.slice(-1)}`}
-                              color="warning"
-                              size="small"
-                            />
                           </Stack>
                           <ButtonGroup>
                             <Button
@@ -93,14 +81,7 @@ export const UploadedPDFList = React.forwardRef(
                             {["admin", "qaa"].includes(cookies.username) ? (
                               <Button
                                 onClick={(e) =>
-                                  deleteList(
-                                    e,
-                                    id,
-                                    program,
-                                    areaNum,
-                                    parameter,
-                                    fileName
-                                  )
+                                  deleteList(e, id, program, areaNum, fileName)
                                 }
                               >
                                 Delete

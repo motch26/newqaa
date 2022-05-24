@@ -144,7 +144,7 @@ function AreasFolder() {
                         >
                           PPP
                         </Button>
-                        {/* <Button
+                        <Button
                           variant="contained"
                           size="small"
                           sx={{ width: "auto", mt: 1 }}
@@ -158,7 +158,7 @@ function AreasFolder() {
                           }}
                         >
                           Exhibit
-                        </Button> */}
+                        </Button>
                         <Button
                           variant="contained"
                           size="small"
