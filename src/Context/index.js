@@ -12,6 +12,7 @@ export const Provider = (props) => {
   const [directory, setDirectory] = useState("");
 
   const [isSubShown, setSubShown] = useState(false);
+  const [isVideoShown, setVideoShown] = useState(false);
   const [isPDFModalShown, setPDFModalShown] = useState(false);
   const [isDropboxOpen, setDropboxOpen] = useState(false);
   const [isLogsOpen, setLogsOpen] = useState(false);
@@ -31,6 +32,7 @@ export const Provider = (props) => {
   const handleSetLogsOpen = (bool) => setLogsOpen(bool);
   const handlePDFModalShown = (bool) => setPDFModalShown(bool);
   const handleSetPerformanceShown = (bool) => setPerformanceShown(bool);
+  const handleSetVideoShown = (bool) => setVideoShown(bool);
 
   return (
     <Context.Provider
@@ -47,6 +49,7 @@ export const Provider = (props) => {
         isPDFModalShown,
         isLogsOpen,
         isPerformanceShown,
+        isVideoShown,
         actions: {
           setProgramData: handleSetProgramData,
           setProgram: handleSetProgram,
@@ -60,6 +63,7 @@ export const Provider = (props) => {
           setLogsOpen: handleSetLogsOpen,
           setPDFModalShown: handlePDFModalShown,
           setPerformanceShown: handleSetPerformanceShown,
+          setVideoShown: handleSetVideoShown,
         },
       }}
     >

@@ -3,6 +3,7 @@ import PDFModal from "./PDFModal";
 import { Context } from "./../Context";
 import criteria from "./../json/criteria.json";
 import exhibits from "./../json/exhibit.json";
+import video from "./../json/video.json";
 import {
   Grid,
   Box,
@@ -23,6 +24,7 @@ import {
   Close as CloseIcon,
   ExpandMore as ExpandMoreIcon,
 } from "@mui/icons-material";
+import VideoModal from "./VideoModal";
 
 function SideList() {
   var { actions, program, areaNum, parameter, paramData } = useContext(Context);
@@ -240,6 +242,27 @@ function SideList() {
               </Box>
             ) : (
               <List>
+                {video.hasOwnProperty(program)
+                  ? video[program].hasOwnProperty(areaNum)
+                    ? video[program][areaNum].map((v) => {
+                        console.log(v);
+                        const vidFilename = Object.keys(v)[0];
+                        const vidURL = v[vidFilename];
+                        return (
+                          <ListItemButton
+                            onClick={() => {
+                              actions.setVideoShown(true);
+                              actions.setFile(vidURL);
+                            }}
+                          >
+                            <ListItemText
+                              primary={`Video ${vidFilename.slice(5)}`}
+                            />
+                          </ListItemButton>
+                        );
+                      })
+                    : null
+                  : null}
                 {exhibitData.map((exhibit) => {
                   const exNum = Object.keys(exhibit)[0];
                   const exDesc = exhibit[exNum];
@@ -263,6 +286,7 @@ function SideList() {
             )}
           </Box>
           <PDFModal />
+          <VideoModal />
         </Box>
       </Container>
     </Grid>
